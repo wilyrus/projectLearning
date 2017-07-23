@@ -1,4 +1,9 @@
 
+import test from './modules/importTest1.js';
+
+test();
+
+/*
 import ml from 'ml-regression';
 import csv from 'csvtojson';
 
@@ -35,3 +40,4 @@ csv()
         dressData(); // To get data points from JSON Objects
         performRegression();
     });
+*/
