@@ -1,0 +1,24 @@
+{
+  "name": "jsml",
+  "version": "1.0.0",
+  "description": "ml test in js",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "jsml"
+  },
+  "keywords": [
+    "ml",
+    "js"
+  ],
+  "author": "wilyrus",
+  "license": "ISC",
+  "dependencies": {
+    "csvtojson": "^1.1.7",
+    "d3": "^4.10.0",
+    "ml-regression": "^4.4.2"
+  }
+}
