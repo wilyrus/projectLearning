@@ -18,11 +18,11 @@
   "author": "wilyrus",
   "license": "ISC",
   "dependencies": {
-    "csvtojson": "^1.1.7",
     "d3": "^4.10.0",
-    "ml-regression": "^4.4.2"
+    "ml-regression": "^4.4.2",
+    "webpack-dev-server": "^2.6.1"
   },
   "devDependencies": {
-    "webpack": "^3.3.0"
+    "webpack": "^3.4.0"
   }
 }

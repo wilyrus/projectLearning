@@ -1,13 +1,6 @@
 
-import test from './modules/importTest1.js';
-
-test();
-
-/*
 import ml from 'ml-regression';
-import csv from 'csvtojson';
-
-const csvFilePath = './resources/advertising.csv';
+import data from './resources/advertising.csv';
 
 const csvData = []; // parsed Data
 const X = []; // Input
@@ -30,7 +23,7 @@ function performRegression() {
     predictOutput();
 }
 
-
+/*
 csv()
     .fromFile(csvFilePath)
     .on('json', (jsonObj) => {
