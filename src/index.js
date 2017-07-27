@@ -1,6 +1,6 @@
 
 import * as ml from 'ml-regression';
-import papa from 'papaparse';
+import * as drawService from './modules/draw/D3DrawService'
 import data from './resources/advertising.csv';
 
 const SLR = ml.SLR;
@@ -26,8 +26,9 @@ function performRegression() {
     console.log(regressionModel.toString(3));
     predictOutput(5);
 }
-const jsonData = papa.parse(data);
 
-dressData(jsonData);
+dressData(data);
 performRegression();
+
+drawService.drawScatterplotAt(data, null);
 
