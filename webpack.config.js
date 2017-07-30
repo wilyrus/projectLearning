@@ -1,5 +1,9 @@
-var path = require('path');
-var webpackMiddleware = require("webpack-dev-middleware");
+
+const path = require('path');
+const webpackMiddleware = require("webpack-dev-middleware");
+const webpack = require("webpack");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
     entry: './src/index.js',
@@ -29,5 +33,19 @@ module.exports = {
             test: /\.vue$/,
             loader: 'vue-loader'
         }]
-    }
+    },
+    plugins: [
+        new webpack.optimize.ModuleConcatenationPlugin(),
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: 'production',
+                NODE_ENV: 'development'
+            }
+        }),
+        new HtmlWebpackPlugin({
+            title: 'My App',
+            filename: 'index.html'
+        }),
+        new CleanWebpackPlugin(path.resolve(__dirname, 'dist'))
+    ]
 };
