@@ -38,13 +38,14 @@ module.exports = {
         new webpack.optimize.ModuleConcatenationPlugin(),
         new webpack.DefinePlugin({
             'process.env': {
-                NODE_ENV: 'production',
-                NODE_ENV: 'development'
+                NODE_ENV: '"production"',
+                NODE_ENV: '"development"'
             }
         }),
         new HtmlWebpackPlugin({
             title: 'My App',
-            filename: 'index.html'
+            filename: 'index.html',
+            template: path.join(__dirname, "src/index.html")
         }),
         new CleanWebpackPlugin(path.resolve(__dirname, 'dist'))
     ]

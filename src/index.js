@@ -1,5 +1,5 @@
 
-import app from './modules/app.vue';
+import Vue from 'vue';
 
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
@@ -13,3 +13,9 @@ if ('serviceWorker' in navigator) {
     });
 }
 
+var app = new Vue({
+    el: '#app',
+    data: {
+        message: 'Hello Vue!'
+    }
+})
