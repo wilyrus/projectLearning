@@ -1,6 +1,5 @@
 
 const path = require('path');
-const webpackMiddleware = require("webpack-dev-middleware");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -16,6 +15,11 @@ module.exports = {
         contentBase: path.join(__dirname, "dist"),
         compress: true,
         port: 8080
+    },
+    resolve: {
+        alias: {
+            vue: path.join(__dirname, "src/aliases/vue.min.js")
+        }
     },
     module: {
         rules: [{

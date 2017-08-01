@@ -1,5 +1,6 @@
 
 import Vue from 'vue';
+import app from './modules/app.vue';
 
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
