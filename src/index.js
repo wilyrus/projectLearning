@@ -21,5 +21,10 @@ var app = new Vue({
     },
     components: {
         'my-button': button
+    },
+    methods:{
+        handleButtonClick() {
+
+        }
     }
 })
