@@ -1,6 +1,6 @@
 
 import Vue from 'vue';
-import app from './modules/app.vue';
+import button from './modules/components/ButtonController';
 
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
@@ -18,5 +18,8 @@ var app = new Vue({
     el: '#app',
     data: {
         message: 'Hello Vue!'
+    },
+    components: {
+        'my-button': button
     }
 })
