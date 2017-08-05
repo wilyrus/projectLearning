@@ -22,9 +22,9 @@ var app = new Vue({
     components: {
         'my-button': button
     },
-    methods:{
+    methods: {
         handleButtonClick() {
-
+            console.log('123');
         }
     }
 })

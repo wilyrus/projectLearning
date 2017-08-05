@@ -1,26 +1,34 @@
 
+export default class SpeechRecognitionService {
+    SpeechRecognition() { return SpeechRecognition || webkitSpeechRecognition }
 
-const SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+    constructor() {
+        if (!this.STTController) {
+            this.STTController = new SpeechRecognition();
 
-const STTController = new SpeechRecognition();
+            this.STTController.lang = 'en-US';
+            this.STTController.interimResults = false;
+            this.STTController.maxAlternatives = 1;
 
-STTController.lang = 'en-US';
-STTController.interimResults = false;
-STTController.maxAlternatives = 1;
+            this._initEventsListener();
+        }
+    }
 
-//STTController.start();
-/*
-recognition.onresult = function(event) {
-    var last = event.results.length - 1;
-    var color = event.results[last][0].transcript;
-    diagnostic.textContent = 'Result received: ' + color + '.';
-    bg.style.backgroundColor = color;
-    console.log('Confidence: ' + event.results[0][0].confidence);
+    startRecognition() {
+        this.STTController.start();
+    }
+
+    stopRecognition() {
+        this.STTController.stop();
+    }
+
+    _initEventsListener() {
+        this.STTController.onresult = function(event) {
+            console.log('Confidence: ' + event.results[0][0].confidence);
+        }
+
+        this.STTController.onspeechend = function() {
+            this.STTController.stop();
+        }
+    }
 }
-*/
-
-/*
-recognition.onspeechend = function() {
-    recognition.stop();
-}
-*/
