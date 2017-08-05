@@ -1,10 +1,10 @@
 
 export default class SpeechRecognitionService {
-    SpeechRecognition() { return SpeechRecognition || webkitSpeechRecognition }
-
     constructor() {
+        const browserSpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
         if (!this.STTController) {
-            this.STTController = new SpeechRecognition();
+            this.STTController = new browserSpeechRecognition();
 
             this.STTController.lang = 'en-US';
             this.STTController.interimResults = false;

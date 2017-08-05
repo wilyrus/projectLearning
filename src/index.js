@@ -1,6 +1,5 @@
 
-import Vue from 'vue';
-import button from './modules/components/ButtonController';
+import Application from './Application';
 
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
@@ -14,17 +13,5 @@ if ('serviceWorker' in navigator) {
     });
 }
 
-var app = new Vue({
-    el: '#app',
-    data: {
-        message: 'Hello Vue!'
-    },
-    components: {
-        'my-button': button
-    },
-    methods: {
-        handleButtonClick() {
-            console.log('123');
-        }
-    }
-})
+const application = new Application();
+application.start();
