@@ -20,8 +20,10 @@
   "license": "ISC",
   "dependencies": {
     "d3": "^4.10.0",
+    "machine_learning": "^0.1.1",
     "ml-regression": "^4.4.2",
     "papaparse": "^4.3.5",
+    "synaptic": "^1.0.12",
     "vue": "^2.4.2",
     "vue-loader": "^13.0.4",
     "vue-template-compiler": "^2.4.2"
