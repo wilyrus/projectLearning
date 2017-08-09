@@ -1,6 +1,9 @@
+
 import Vue from 'vue';
 import button from './modules/components/ButtonController';
+import RegressionService from './modules/regression/RegressionService';
 import SpeechRecognitionService from './modules/speechRecognition/SpeechRecognitionService';
+import * as DrawService from './modules/draw/D3DrawService'
 
 export default class Application {
     start() {
@@ -13,6 +16,12 @@ export default class Application {
                 if (!this.SpeechRecognitionService) {
                     this.SpeechRecognitionService = new SpeechRecognitionService();
                 }
+                if (!this.RegressionService) {
+                    this.RegressionService = new RegressionService();
+                }
+                if (!this.DrawService) {
+                    this.DrawService = new DrawService();
+                }
             },
             methods: {
                 startDict() {
@@ -20,8 +29,15 @@ export default class Application {
                 },
                 endDict() {
                     this.SpeechRecognitionService.stopRecognition();
+                },
+                startRegression() {
+                    this.RegressionService.doRegression();
+                },
+                drawRegressionData() {
+                    this.DrawService.drawScatterplotAt(data, null);
                 }
             }
         })
     }
 }
+

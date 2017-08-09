@@ -1,33 +1,33 @@
 
 import * as ml from 'ml-regression';
-import * as drawService from './modules/draw/D3DrawService'
-import data from './resources/advertising.csv';
+import data from '../../resources/Advertising.csv';
 
-const SLR = ml.SLR;
-const X = []; // Input
-const y = []; // Output
-let regressionModel;
+export default class RegressionService {
+    constructor() {
+        this.X = []; // Input
+        this.y = []; // Output
+        this.regressionModel = {};
+    }
 
-function dressData(jsonData) {
-    jsonData.forEach((row) => {
-        X.push(f(row.Radio));
-        y.push(f(row.Sales));
-    });
+    predictOutput() {
+        console.log(this.regressionModel.predict(parseFloat(5)));
+    }
+
+    performRegression() {
+        this.regressionModel = new ml.SLR(this.X, this.y); // Train the model on training data
+        console.log(this.regressionModel.toString(3));
+        this.predictOutput(5);
+    }
+
+    dressData(jsonData) {
+        jsonData.forEach((row) => {
+            X.push(parseFloat(row.Radio));
+            y.push(parseFloat(row.Sales));
+        });
+    }
+
+    doRegression() {
+        this.dressData(data);
+        this.performRegression();
+    }
 }
-function f(s) {
-    return parseFloat(s);
-}
-function predictOutput() {
-    console.log(regressionModel.predict(parseFloat(5)));
-};
-
-function performRegression() {
-    regressionModel = new SLR(X, y); // Train the model on training data
-    console.log(regressionModel.toString(3));
-    predictOutput(5);
-}
-
-dressData(data);
-performRegression();
-
-drawService.drawScatterplotAt(data, null);
