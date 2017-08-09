@@ -1,16 +1,23 @@
 
 import Vue from 'vue';
+
 import button from './modules/components/ButtonController';
+import SvgContainer from './modules/components/SvgContainer';
+
 import RegressionService from './modules/regression/RegressionService';
 import SpeechRecognitionService from './modules/speechRecognition/SpeechRecognitionService';
-import DrawService from './modules/draw/D3DrawService'
+import DrawService from './modules/draw/D3DrawService';
 
 export default class Application {
     start() {
         new Vue({
             el: '#app',
+            data: {
+                regressionData: null
+            },
             components: {
-                'my-button': button
+                'my-button': button,
+                'svg-container': SvgContainer
             },
             beforeCreate() {
                 if (!this.SpeechRecognitionService) {
@@ -31,10 +38,10 @@ export default class Application {
                     this.SpeechRecognitionService.stopRecognition();
                 },
                 startRegression() {
-                    this.RegressionService.doRegression();
+                    this.regressionData = this.RegressionService.doRegression();
                 },
                 drawRegressionData() {
-                    this.DrawService.drawScatterplotAt(data, null);
+                    this.DrawService.drawScatterplotAt(this.regressionData);
                 }
             }
         })

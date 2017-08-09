@@ -16,18 +16,19 @@ export default class RegressionService {
     performRegression() {
         this.regressionModel = new ml.SLR(this.X, this.y); // Train the model on training data
         console.log(this.regressionModel.toString(3));
-        this.predictOutput(5);
+
+        return this.regressionModel.toString(3);
     }
 
     dressData(jsonData) {
         jsonData.forEach((row) => {
-            X.push(parseFloat(row.Radio));
-            y.push(parseFloat(row.Sales));
+            this.X.push(parseFloat(row.Radio));
+            this.y.push(parseFloat(row.Sales));
         });
     }
 
     doRegression() {
         this.dressData(data);
-        this.performRegression();
+        return this.performRegression();
     }
 }
