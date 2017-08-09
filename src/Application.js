@@ -3,7 +3,7 @@ import Vue from 'vue';
 import button from './modules/components/ButtonController';
 import RegressionService from './modules/regression/RegressionService';
 import SpeechRecognitionService from './modules/speechRecognition/SpeechRecognitionService';
-import * as DrawService from './modules/draw/D3DrawService'
+import DrawService from './modules/draw/D3DrawService'
 
 export default class Application {
     start() {

@@ -27,8 +27,6 @@ export default class SpeechRecognitionService {
             console.log('Confidence: ' + event.results[0][0].confidence);
         }
 
-        this.STTController.onspeechend = function() {
-            this.STTController.stop();
-        }
+        this.STTController.onspeechend = () => this.STTController.stop();
     }
 }
