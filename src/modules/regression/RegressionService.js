@@ -4,8 +4,8 @@ import data from '../../resources/Advertising.csv';
 
 export default class RegressionService {
     constructor() {
-        this.X = []; // Input
-        this.y = []; // Output
+        this.X = [];
+        this.y = [];
         this.regressionModel = {};
     }
 
@@ -14,7 +14,7 @@ export default class RegressionService {
     }
 
     performRegression() {
-        this.regressionModel = new ml.SLR(this.X, this.y); // Train the model on training data
+        this.regressionModel = new ml.SLR(this.X, this.y);
         console.log(this.regressionModel.toString(3));
 
         return this.regressionModel.toString(3);
