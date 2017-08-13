@@ -20,6 +20,8 @@
   "license": "ISC",
   "dependencies": {
     "d3": "^4.10.0",
+    "d3-scale": "^1.0.6",
+    "d3-svg": "^0.2.2",
     "machine_learning": "^0.1.1",
     "ml-regression": "^4.4.2",
     "papaparse": "^4.3.5",
@@ -34,7 +36,7 @@
     "csv-loader": "^2.1.1",
     "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.30.1",
-    "webpack": "^3.5.2",
+    "webpack": "^3.5.4",
     "webpack-dev-middleware": "^1.12.0",
     "webpack-dev-server": "^2.7.1"
   }

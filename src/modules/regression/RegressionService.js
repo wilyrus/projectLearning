@@ -15,9 +15,8 @@ export default class RegressionService {
 
     performRegression() {
         this.regressionModel = new ml.SLR(this.X, this.y);
-        console.log(this.regressionModel.toString(3));
 
-        return this.regressionModel.toString(3);
+        return this.regressionModel.predict.bind(this.regressionModel);
     }
 
     dressData(jsonData) {

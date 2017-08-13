@@ -7,13 +7,14 @@ import SvgContainer from './modules/components/SvgContainer';
 import RegressionService from './modules/regression/RegressionService';
 import SpeechRecognitionService from './modules/speechRecognition/SpeechRecognitionService';
 import DrawService from './modules/draw/D3DrawService';
+import GraphHelper from './modules/utils/GraphHelper';
 
 export default class Application {
     start() {
         new Vue({
             el: '#app',
             data: {
-                regressionData: null
+                regressionFunc: null
             },
             components: {
                 'my-button': button,
@@ -38,10 +39,12 @@ export default class Application {
                     this.SpeechRecognitionService.stopRecognition();
                 },
                 startRegression() {
-                    this.regressionData = this.RegressionService.doRegression();
+                    this.regressionFunc = this.RegressionService.doRegression();
                 },
                 drawRegressionData() {
-                    this.DrawService.drawScatterplotAt(this.regressionData);
+                    const regressionData = GraphHelper.getPointsFromFunc(this.regressionFunc, {min: 0, max: 50}, 10);
+
+                    this.DrawService.drawScatterplotAt(regressionData);
                 }
             }
         })
