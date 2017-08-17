@@ -13,19 +13,15 @@ export default class D3DrawService {
             width = 960 - margin.left - margin.right,
             height = 500 - margin.top - margin.bottom;
 
-        var x = d3Scale.scale.linear()
+        var x = d3Scale.scaleLinear()
             .range([0, width]);
 
-        var y = d3Scale.scale.linear()
+        var y = d3Scale.scaleLinear()
             .range([height, 0]);
+        debugger
+        var xAxis = d3.axisBottom(x);
 
-        var xAxis = d3.svg.axis()
-            .scale(x)
-            .orient("bottom");
-
-        var yAxis = d3.svg.axis()
-            .scale(y)
-            .orient("left");
+        var yAxis = d3.axisLeft(y);
 
         var svg = d3.select("body").append("svg")
             .attr("width", width + margin.left + margin.right)
@@ -33,15 +29,12 @@ export default class D3DrawService {
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        var data = create_data(1000);
-
         data.forEach(function (d) {
-            d.x = +d.x;
-            d.y = +d.y;
-            d.yhat = +d.yhat;
+            d.x = d[0];
+            d.y = d[1];
         });
 
-        var line = d3.svg.line()
+        var line = d3.line()
             .x(function (d) {
                 return x(d.x);
             })
