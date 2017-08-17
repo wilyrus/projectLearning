@@ -18,7 +18,7 @@ export default class D3DrawService {
 
         var y = d3Scale.scaleLinear()
             .range([height, 0]);
-        debugger
+        
         var xAxis = d3.axisBottom(x);
 
         var yAxis = d3.axisLeft(y);
