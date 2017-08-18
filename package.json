@@ -21,7 +21,6 @@
   "dependencies": {
     "d3": "^4.10.0",
     "d3-scale": "^1.0.6",
-    "d3-svg": "^0.2.2",
     "machine_learning": "^0.1.1",
     "ml-regression": "^4.4.2",
     "papaparse": "^4.3.5",
