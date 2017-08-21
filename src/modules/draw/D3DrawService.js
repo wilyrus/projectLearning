@@ -29,25 +29,17 @@ export default class D3DrawService {
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        data.forEach(function (d) {
+        data.forEach(d => {
             d.x = d[0];
             d.y = d[1];
         });
 
         var line = d3.line()
-            .x(function (d) {
-                return x(d.x);
-            })
-            .y(function (d) {
-                return y(d.yhat);
-            });
+            .x(d => x(d.x))
+            .y(d => y(d.yhat));
 
-        x.domain(d3.extent(data, function (d) {
-            return d.x;
-        }));
-        y.domain(d3.extent(data, function (d) {
-            return d.y;
-        }));
+        x.domain(d3.extent(data, d => d.x));
+        y.domain(d3.extent(data, d => d.y));
 
         svg.append("g")
             .attr("class", "x axis")
@@ -69,19 +61,15 @@ export default class D3DrawService {
             .attr("y", 6)
             .attr("dy", ".71em")
             .style("text-anchor", "end")
-            .text("Y-Value")
+            .text("Y-Value");
 
         svg.selectAll(".dot")
             .data(data)
             .enter().append("circle")
             .attr("class", "dot")
             .attr("r", 3.5)
-            .attr("cx", function (d) {
-                return x(d.x);
-            })
-            .attr("cy", function (d) {
-                return y(d.y);
-            });
+            .attr("cx", d => x(d.x))
+            .attr("cy", d => y(d.y));
 
         svg.append("path")
             .datum(data)
