@@ -13,13 +13,16 @@ export default class Application {
     start() {
         new Vue({
             el: '#app',
+
             data: {
                 regressionFunc: null
             },
+
             components: {
                 'my-button': button,
                 'svg-container': SvgContainer
             },
+
             beforeCreate() {
                 if (!this.SpeechRecognitionService) {
                     this.SpeechRecognitionService = new SpeechRecognitionService();
@@ -31,6 +34,7 @@ export default class Application {
                     this.DrawService = new DrawService();
                 }
             },
+
             methods: {
                 startDict() {
                     this.SpeechRecognitionService.startRecognition();
